@@ -3,7 +3,9 @@
 this is using for generate the files of carity FE
 
 menus:
+
   simple module
+  
   
   full module
   
@@ -37,7 +39,11 @@ menus:
     query module
     
  
+ 
   common component
+  
+  
+  
   
   
   
