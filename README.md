@@ -6,23 +6,39 @@ menus:
   simple module
   
   full module
+  
     module services
+    
       module environment
+      
       module router
+      
   
   root module
+  
     add module
+    
     list module
+    
     profile module
+    
       panel component
+      
       panel component2
+      
       panel component with form
+      
       panel component2 with form
+      
       panel form
+      
     query root module
+    
     query module
+    
  
   common component
+  
   
   
   
