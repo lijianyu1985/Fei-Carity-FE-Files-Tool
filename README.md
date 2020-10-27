@@ -2,45 +2,57 @@
 
 this is using for generate the files of carity FE
 
-menus:
+Menus:
 
-  simple module
+  Parts(components):
+    environment
+    router
+    add
+    list
+    panel
+    panel-form
+    query
+    TODO...
+
+  Assembly(folders):
+    root module
+    services
+    profile
+    TODO...
   
-  
-  full module
-  
-    module services
-    
-    module environment
-      
-    module router
-      
-  
-  root module
-  
-    add module
-    
-    list module
-    
-    profile module
-    
-      panel component
-      
-      panel component2
-      
-      panel component with form
-      
-      panel component2 with form
-      
-      panel form
-      
-    query root module
-    
-    query module
-    
- 
- 
-  common component
+  TODO...
+
+Snippets:
+
+  Html:
+
+    profile
+    panel
+    panel_s
+    form
+    list
+      list-menu
+      list-filter
+      list-table
+      list-preview
+      list-footer
+    query
+    TODO...
+
+  TS:
+    profile
+    panel
+    panel_s
+    form
+    list
+    add
+    query
+    router
+    environment
+    TODO...
+
+
+
   
   
   
