@@ -1,7 +1,5 @@
 # Fei-Carity-FE-Files-Tool
 
-this is using for generate the files of carity FE
-
 Menus:
 
   Parts(components):
@@ -20,6 +18,7 @@ Menus:
     root module
     services
     profile
+    query-root
     TODO...
   
   TODO...
