@@ -5,6 +5,7 @@ this is using for generate the files of carity FE
 Menus:
 
   Parts(components):
+  
     environment
     router
     add
@@ -15,6 +16,7 @@ Menus:
     TODO...
 
   Assembly(folders):
+
     root module
     services
     profile
@@ -40,6 +42,7 @@ Snippets:
     TODO...
 
   TS:
+
     profile
     panel
     panel_s
