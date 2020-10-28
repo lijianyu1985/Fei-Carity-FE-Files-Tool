@@ -1,0 +1,845 @@
+FROM:
+
+@Injectable()
+class GrievanceAppealProfileServiceApi extends BaseService {
+  constructor(
+    config: ApiConfigurationService,
+    http: HttpClient
+  ) {
+    super(config, http);
+  }
+
+  /**
+   * @param grievanceAppealKey undefined
+   * @return OK
+   */
+  GetPromoteGrievanceAppealModel(grievanceAppealKey: string): Observable<PromoteGrievanceAppealViewModel> {
+    return this.GetPromoteGrievanceAppealModelResponse(grievanceAppealKey).pipe(
+      map(_r => _r.body)
+    );
+  }
+
+  /**
+   * @param grievanceAppealKey undefined
+   * @return OK
+   */
+  GrievanceAppealProfile_IndexResponse(grievanceAppealKey: string): Observable<HttpResponse<GrievanceAppealIndexViewModel>> {
+    let __params = this.newParams();
+    let __headers = new HttpHeaders();
+    let __body: any = null;
+
+    let req = new HttpRequest<any>(
+      'GET',
+      this.rootUrl + `/view/Core/GrievanceAppealModule/GrievanceAppeal/${grievanceAppealKey}/GrievanceAppealProfile`,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: 'json'
+      });
+
+    return this.http.request<any>(req).pipe(
+      filter(_r => _r instanceof HttpResponse),
+      map(_r => {
+        let _resp = _r as HttpResponse<any>;
+        let _body: GrievanceAppealIndexViewModel = null;
+        _body = _resp.body as GrievanceAppealIndexViewModel;
+        return _resp.clone({body: _body}) as HttpResponse<GrievanceAppealIndexViewModel>;
+      })
+    );
+  }
+
+  /**
+   * @param grievanceAppealKey undefined
+   * @return OK
+   */
+  GrievanceAppealProfile_Index(grievanceAppealKey: string): Observable<GrievanceAppealIndexViewModel> {
+    return this.GrievanceAppealProfile_IndexResponse(grievanceAppealKey).pipe(
+      map(_r => _r.body)
+    );
+  }
+
+  /**
+   * @param grievanceAppealKey undefined
+   * @return OK
+   */
+  GrievanceAppealProfile_PreviewGrievanceAppealResponse(grievanceAppealKey: string): Observable<HttpResponse<GrievanceAppealPreviewViewModel>> {
+    let __params = this.newParams();
+    let __headers = new HttpHeaders();
+    let __body: any = null;
+
+    let req = new HttpRequest<any>(
+      'GET',
+      this.rootUrl + `/view/Core/GrievanceAppealModule/GrievanceAppeal/${grievanceAppealKey}/GrievanceAppealProfile/PreviewGrievanceAppeal`,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: 'json'
+      });
+
+    return this.http.request<any>(req).pipe(
+      filter(_r => _r instanceof HttpResponse),
+      map(_r => {
+        let _resp = _r as HttpResponse<any>;
+        let _body: GrievanceAppealPreviewViewModel = null;
+        _body = _resp.body as GrievanceAppealPreviewViewModel;
+        return _resp.clone({body: _body}) as HttpResponse<GrievanceAppealPreviewViewModel>;
+      })
+    );
+  }
+
+  /**
+   * @param grievanceAppealKey undefined
+   * @return OK
+   */
+  GrievanceAppealProfile_PreviewGrievanceAppeal(grievanceAppealKey: string): Observable<GrievanceAppealPreviewViewModel> {
+    return this.GrievanceAppealProfile_PreviewGrievanceAppealResponse(grievanceAppealKey).pipe(
+      map(_r => _r.body)
+    );
+  }
+
+  /**
+   * @param params The `GrievanceAppealProfileService.GrievanceAppealProfile_RemoveAppellantParams` containing the following parameters:
+   *
+   * - `grievanceAppealKey`:
+   *
+   * - `appellantKey`:
+   *
+   * @return OK
+   */
+  GrievanceAppealProfile_RemoveAppellantResponse(params: GrievanceAppealProfileServiceApi.GrievanceAppealProfile_RemoveAppellantParams): Observable<HttpResponse<AppellantSectionViewModel>> {
+    let __params = this.newParams();
+    let __headers = new HttpHeaders();
+    let __body: any = null;
+
+    if (params.appellantKey != null) __params = __params.set('appellantKey', params.appellantKey.toString());
+    let req = new HttpRequest<any>(
+      'POST',
+      this.rootUrl + `/view/Core/GrievanceAppealModule/GrievanceAppeal/${params.grievanceAppealKey}/GrievanceAppealProfile/RemoveAppellant`,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: 'json'
+      });
+
+    return this.http.request<any>(req).pipe(
+      filter(_r => _r instanceof HttpResponse),
+      map(_r => {
+        let _resp = _r as HttpResponse<any>;
+        let _body: AppellantSectionViewModel = null;
+        _body = _resp.body as AppellantSectionViewModel;
+        return _resp.clone({body: _body}) as HttpResponse<AppellantSectionViewModel>;
+      })
+    );
+  }
+
+  /**
+   * @param params The `GrievanceAppealProfileService.GrievanceAppealProfile_RemoveAppellantParams` containing the following parameters:
+   *
+   * - `grievanceAppealKey`:
+   *
+   * - `appellantKey`:
+   *
+   * @return OK
+   */
+  GrievanceAppealProfile_RemoveAppellant(params: GrievanceAppealProfileServiceApi.GrievanceAppealProfile_RemoveAppellantParams): Observable<AppellantSectionViewModel> {
+    return this.GrievanceAppealProfile_RemoveAppellantResponse(params).pipe(
+      map(_r => _r.body)
+    );
+  }
+
+  /**
+   * @param grievanceAppealKey undefined
+   * @return OK
+   */
+  GrievanceAppealProfile_RemoveExtensionResponse(grievanceAppealKey: string): Observable<HttpResponse<GrievanceAppealAdministrativeActionsSectionViewModel>> {
+    let __params = this.newParams();
+    let __headers = new HttpHeaders();
+    let __body: any = null;
+
+    let req = new HttpRequest<any>(
+      'POST',
+      this.rootUrl + `/view/Core/GrievanceAppealModule/GrievanceAppeal/${grievanceAppealKey}/GrievanceAppealProfile/RemoveExtension`,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: 'json'
+      });
+
+    return this.http.request<any>(req).pipe(
+      filter(_r => _r instanceof HttpResponse),
+      map(_r => {
+        let _resp = _r as HttpResponse<any>;
+        let _body: GrievanceAppealAdministrativeActionsSectionViewModel = null;
+        _body = _resp.body as GrievanceAppealAdministrativeActionsSectionViewModel;
+        return _resp.clone({body: _body}) as HttpResponse<GrievanceAppealAdministrativeActionsSectionViewModel>;
+      })
+    );
+  }
+
+  /**
+   * @param grievanceAppealKey undefined
+   * @return OK
+   */
+  GrievanceAppealProfile_RemoveExtension(grievanceAppealKey: string): Observable<GrievanceAppealAdministrativeActionsSectionViewModel> {
+    return this.GrievanceAppealProfile_RemoveExtensionResponse(grievanceAppealKey).pipe(
+      map(_r => _r.body)
+    );
+  }
+
+  /**
+   * @param params The `GrievanceAppealProfileService.GrievanceAppealProfile_RemoveRepresentativeParams` containing the following parameters:
+   *
+   * - `model`:
+   *
+   * - `grievanceAppealKey`:
+   *
+   * @return OK
+   */
+  GrievanceAppealProfile_RemoveRepresentativeResponse(params: GrievanceAppealProfileServiceApi.GrievanceAppealProfile_RemoveRepresentativeParams): Observable<HttpResponse<AppealRepresentativeSectionViewModel>> {
+    let __params = this.newParams();
+    let __headers = new HttpHeaders();
+    let __body: any = null;
+    __body = params.model;
+
+    let req = new HttpRequest<any>(
+      'POST',
+      this.rootUrl + `/view/Core/GrievanceAppealModule/GrievanceAppeal/${params.grievanceAppealKey}/GrievanceAppealProfile/RemoveRepresentative`,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: 'json'
+      });
+
+    return this.http.request<any>(req).pipe(
+      filter(_r => _r instanceof HttpResponse),
+      map(_r => {
+        let _resp = _r as HttpResponse<any>;
+        let _body: AppealRepresentativeSectionViewModel = null;
+        _body = _resp.body as AppealRepresentativeSectionViewModel;
+        return _resp.clone({body: _body}) as HttpResponse<AppealRepresentativeSectionViewModel>;
+      })
+    );
+  }
+
+  /**
+   * @param params The `GrievanceAppealProfileService.GrievanceAppealProfile_RemoveRepresentativeParams` containing the following parameters:
+   *
+   * - `model`:
+   *
+   * - `grievanceAppealKey`:
+   *
+   * @return OK
+   */
+  GrievanceAppealProfile_RemoveRepresentative(params: GrievanceAppealProfileServiceApi.GrievanceAppealProfile_RemoveRepresentativeParams): Observable<AppealRepresentativeSectionViewModel> {
+    return this.GrievanceAppealProfile_RemoveRepresentativeResponse(params).pipe(
+      map(_r => _r.body)
+    );
+  }
+
+  /**
+   * @param params The `GrievanceAppealProfileService.GrievanceAppealProfile_RemoveWitnessParams` containing the following parameters:
+   *
+   * - `witnessKey`:
+   *
+   * - `grievanceAppealKey`:
+   *
+   * @return OK
+   */
+  GrievanceAppealProfile_RemoveWitnessResponse(params: GrievanceAppealProfileServiceApi.GrievanceAppealProfile_RemoveWitnessParams): Observable<HttpResponse<GrievanceAppealWitnessSectionViewModel>> {
+    let __params = this.newParams();
+    let __headers = new HttpHeaders();
+    let __body: any = null;
+    if (params.witnessKey != null) __params = __params.set('witnessKey', params.witnessKey.toString());
+
+    let req = new HttpRequest<any>(
+      'POST',
+      this.rootUrl + `/view/Core/GrievanceAppealModule/GrievanceAppeal/${params.grievanceAppealKey}/GrievanceAppealProfile/RemoveWitness`,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: 'json'
+      });
+
+    return this.http.request<any>(req).pipe(
+      filter(_r => _r instanceof HttpResponse),
+      map(_r => {
+        let _resp = _r as HttpResponse<any>;
+        let _body: GrievanceAppealWitnessSectionViewModel = null;
+        _body = _resp.body as GrievanceAppealWitnessSectionViewModel;
+        return _resp.clone({body: _body}) as HttpResponse<GrievanceAppealWitnessSectionViewModel>;
+      })
+    );
+  }
+
+  /**
+   * @param params The `GrievanceAppealProfileService.GrievanceAppealProfile_RemoveWitnessParams` containing the following parameters:
+   *
+   * - `witnessKey`:
+   *
+   * - `grievanceAppealKey`:
+   *
+   * @return OK
+   */
+  GrievanceAppealProfile_RemoveWitness(params: GrievanceAppealProfileServiceApi.GrievanceAppealProfile_RemoveWitnessParams): Observable<GrievanceAppealWitnessSectionViewModel> {
+    return this.GrievanceAppealProfile_RemoveWitnessResponse(params).pipe(
+      map(_r => _r.body)
+    );
+  }
+
+  /**
+   * @param params The `GrievanceAppealProfileService.GrievanceAppealProfile_SaveAppellantParams` containing the following parameters:
+   *
+   * - `model`:
+   *
+   * - `grievanceAppealKey`:
+   *
+   * @return OK
+   */
+  GrievanceAppealProfile_SaveAppellantResponse(params: GrievanceAppealProfileServiceApi.GrievanceAppealProfile_SaveAppellantParams): Observable<HttpResponse<AppellantSectionViewModel>> {
+    let __params = this.newParams();
+    let __headers = new HttpHeaders();
+    let __body: any = null;
+    __body = params.model;
+
+    let req = new HttpRequest<any>(
+      'POST',
+      this.rootUrl + `/view/Core/GrievanceAppealModule/GrievanceAppeal/${params.grievanceAppealKey}/GrievanceAppealProfile/SaveAppellant`,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: 'json'
+      });
+
+    return this.http.request<any>(req).pipe(
+      filter(_r => _r instanceof HttpResponse),
+      map(_r => {
+        let _resp = _r as HttpResponse<any>;
+        let _body: AppellantSectionViewModel = null;
+        _body = _resp.body as AppellantSectionViewModel;
+        return _resp.clone({body: _body}) as HttpResponse<AppellantSectionViewModel>;
+      })
+    );
+  }
+
+  /**
+   * @param params The `GrievanceAppealProfileService.GrievanceAppealProfile_SaveAppellantParams` containing the following parameters:
+   *
+   * - `model`:
+   *
+   * - `grievanceAppealKey`:
+   *
+   * @return OK
+   */
+  GrievanceAppealProfile_SaveAppellant(params: GrievanceAppealProfileServiceApi.GrievanceAppealProfile_SaveAppellantParams): Observable<AppellantSectionViewModel> {
+    return this.GrievanceAppealProfile_SaveAppellantResponse(params).pipe(
+      map(_r => _r.body)
+    );
+  }
+
+  /**
+   * @param params The `GrievanceAppealProfileService.GrievanceAppealProfile_SaveDispositionParams` containing the following parameters:
+   *
+   * - `model`:
+   *
+   * - `grievanceAppealKey`:
+   *
+   * @return OK
+   */
+  GrievanceAppealProfile_SaveDispositionResponse(params: GrievanceAppealProfileServiceApi.GrievanceAppealProfile_SaveDispositionParams): Observable<HttpResponse<AppealDispositionViewModel>> {
+    let __params = this.newParams();
+    let __headers = new HttpHeaders();
+    let __body: any = null;
+    __body = params.model;
+
+    let req = new HttpRequest<any>(
+      'POST',
+      this.rootUrl + `/view/Core/GrievanceAppealModule/GrievanceAppeal/${params.grievanceAppealKey}/GrievanceAppealProfile/SaveDisposition`,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: 'json'
+      });
+
+    return this.http.request<any>(req).pipe(
+      filter(_r => _r instanceof HttpResponse),
+      map(_r => {
+        let _resp = _r as HttpResponse<any>;
+        let _body: AppealDispositionViewModel = null;
+        _body = _resp.body as AppealDispositionViewModel;
+        return _resp.clone({body: _body}) as HttpResponse<AppealDispositionViewModel>;
+      })
+    );
+  }
+
+  /**
+   * @param params The `GrievanceAppealProfileService.GrievanceAppealProfile_SaveDispositionParams` containing the following parameters:
+   *
+   * - `model`:
+   *
+   * - `grievanceAppealKey`:
+   *
+   * @return OK
+   */
+  GrievanceAppealProfile_SaveDisposition(params: GrievanceAppealProfileServiceApi.GrievanceAppealProfile_SaveDispositionParams): Observable<AppealDispositionViewModel> {
+    return this.GrievanceAppealProfile_SaveDispositionResponse(params).pipe(
+      map(_r => _r.body)
+    );
+  }
+
+  /**
+   * @param params The `GrievanceAppealProfileService.GrievanceAppealProfile_SaveExtensionParams` containing the following parameters:
+   *
+   * - `model`:
+   *
+   * - `grievanceAppealKey`:
+   *
+   * @return OK
+   */
+  GrievanceAppealProfile_SaveExtensionResponse(params: GrievanceAppealProfileServiceApi.GrievanceAppealProfile_SaveExtensionParams): Observable<HttpResponse<GrievanceAppealAdministrativeActionsSectionViewModel>> {
+    let __params = this.newParams();
+    let __headers = new HttpHeaders();
+    let __body: any = null;
+    __body = params.model;
+
+    let req = new HttpRequest<any>(
+      'POST',
+      this.rootUrl + `/view/Core/GrievanceAppealModule/GrievanceAppeal/${params.grievanceAppealKey}/GrievanceAppealProfile/SaveExtension`,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: 'json'
+      });
+
+    return this.http.request<any>(req).pipe(
+      filter(_r => _r instanceof HttpResponse),
+      map(_r => {
+        let _resp = _r as HttpResponse<any>;
+        let _body: GrievanceAppealAdministrativeActionsSectionViewModel = null;
+        _body = _resp.body as GrievanceAppealAdministrativeActionsSectionViewModel;
+        return _resp.clone({body: _body}) as HttpResponse<GrievanceAppealAdministrativeActionsSectionViewModel>;
+      })
+    );
+  }
+
+  /**
+   * @param params The `GrievanceAppealProfileService.GrievanceAppealProfile_SaveExtensionParams` containing the following parameters:
+   *
+   * - `model`:
+   *
+   * - `grievanceAppealKey`:
+   *
+   * @return OK
+   */
+  GrievanceAppealProfile_SaveExtension(params: GrievanceAppealProfileServiceApi.GrievanceAppealProfile_SaveExtensionParams): Observable<GrievanceAppealAdministrativeActionsSectionViewModel> {
+    return this.GrievanceAppealProfile_SaveExtensionResponse(params).pipe(
+      map(_r => _r.body)
+    );
+  }
+
+  /**
+   * @param params The `GrievanceAppealProfileService.GrievanceAppealProfile_SaveGrievanceAppealInformationParams` containing the following parameters:
+   *
+   * - `model`:
+   *
+   * - `grievanceAppealKey`:
+   *
+   * @return OK
+   */
+  GrievanceAppealProfile_SaveGrievanceAppealInformationResponse(params: GrievanceAppealProfileServiceApi.GrievanceAppealProfile_SaveGrievanceAppealInformationParams): Observable<HttpResponse<GrievanceAppealInformationSectionViewModel>> {
+    let __params = this.newParams();
+    let __headers = new HttpHeaders();
+    let __body: any = null;
+    __body = params.model;
+
+    let req = new HttpRequest<any>(
+      'POST',
+      this.rootUrl + `/view/Core/GrievanceAppealModule/GrievanceAppeal/${params.grievanceAppealKey}/GrievanceAppealProfile/SaveGrievanceAppealInformation`,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: 'json'
+      });
+
+    return this.http.request<any>(req).pipe(
+      filter(_r => _r instanceof HttpResponse),
+      map(_r => {
+        let _resp = _r as HttpResponse<any>;
+        let _body: GrievanceAppealInformationSectionViewModel = null;
+        _body = _resp.body as GrievanceAppealInformationSectionViewModel;
+        return _resp.clone({body: _body}) as HttpResponse<GrievanceAppealInformationSectionViewModel>;
+      })
+    );
+  }
+
+  /**
+   * @param params The `GrievanceAppealProfileService.GrievanceAppealProfile_SaveGrievanceAppealInformationParams` containing the following parameters:
+   *
+   * - `model`:
+   *
+   * - `grievanceAppealKey`:
+   *
+   * @return OK
+   */
+  GrievanceAppealProfile_SaveGrievanceAppealInformation(params: GrievanceAppealProfileServiceApi.GrievanceAppealProfile_SaveGrievanceAppealInformationParams): Observable<GrievanceAppealInformationSectionViewModel> {
+    return this.GrievanceAppealProfile_SaveGrievanceAppealInformationResponse(params).pipe(
+      map(_r => _r.body)
+    );
+  }
+
+  /**
+   * @param params The `GrievanceAppealProfileService.GrievanceAppealProfile_SaveHearingInformationParams` containing the following parameters:
+   *
+   * - `model`:
+   *
+   * - `grievanceAppealKey`:
+   *
+   * @return OK
+   */
+  GrievanceAppealProfile_SaveHearingInformationResponse(params: GrievanceAppealProfileServiceApi.GrievanceAppealProfile_SaveHearingInformationParams): Observable<HttpResponse<HearingInformationViewModel>> {
+    let __params = this.newParams();
+    let __headers = new HttpHeaders();
+    let __body: any = null;
+    __body = params.model;
+
+    let req = new HttpRequest<any>(
+      'POST',
+      this.rootUrl + `/view/Core/GrievanceAppealModule/GrievanceAppeal/${params.grievanceAppealKey}/GrievanceAppealProfile/SaveHearingInformation`,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: 'json'
+      });
+
+    return this.http.request<any>(req).pipe(
+      filter(_r => _r instanceof HttpResponse),
+      map(_r => {
+        let _resp = _r as HttpResponse<any>;
+        let _body: HearingInformationViewModel = null;
+        _body = _resp.body as HearingInformationViewModel;
+        return _resp.clone({body: _body}) as HttpResponse<HearingInformationViewModel>;
+      })
+    );
+  }
+
+  /**
+   * @param params The `GrievanceAppealProfileService.GrievanceAppealProfile_SaveHearingInformationParams` containing the following parameters:
+   *
+   * - `model`:
+   *
+   * - `grievanceAppealKey`:
+   *
+   * @return OK
+   */
+  GrievanceAppealProfile_SaveHearingInformation(params: GrievanceAppealProfileServiceApi.GrievanceAppealProfile_SaveHearingInformationParams): Observable<HearingInformationViewModel> {
+    return this.GrievanceAppealProfile_SaveHearingInformationResponse(params).pipe(
+      map(_r => _r.body)
+    );
+  }
+
+  /**
+   * @param params The `GrievanceAppealProfileService.GrievanceAppealProfile_SaveOverturnDispositionParams` containing the following parameters:
+   *
+   * - `model`:
+   *
+   * - `grievanceAppealKey`:
+   *
+   * @return OK
+   */
+  GrievanceAppealProfile_SaveOverturnDispositionResponse(params: GrievanceAppealProfileServiceApi.GrievanceAppealProfile_SaveOverturnDispositionParams): Observable<HttpResponse<GrievanceAppealOverturnDispositionSectionViewModel>> {
+    let __params = this.newParams();
+    let __headers = new HttpHeaders();
+    let __body: any = null;
+    __body = params.model;
+
+    let req = new HttpRequest<any>(
+      'POST',
+      this.rootUrl + `/view/Core/GrievanceAppealModule/GrievanceAppeal/${params.grievanceAppealKey}/GrievanceAppealProfile/SaveOverturnDisposition`,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: 'json'
+      });
+
+    return this.http.request<any>(req).pipe(
+      filter(_r => _r instanceof HttpResponse),
+      map(_r => {
+        let _resp = _r as HttpResponse<any>;
+        let _body: GrievanceAppealOverturnDispositionSectionViewModel = null;
+        _body = _resp.body as GrievanceAppealOverturnDispositionSectionViewModel;
+        return _resp.clone({body: _body}) as HttpResponse<GrievanceAppealOverturnDispositionSectionViewModel>;
+      })
+    );
+  }
+
+  /**
+   * @param params The `GrievanceAppealProfileService.GrievanceAppealProfile_SaveOverturnDispositionParams` containing the following parameters:
+   *
+   * - `model`:
+   *
+   * - `grievanceAppealKey`:
+   *
+   * @return OK
+   */
+  GrievanceAppealProfile_SaveOverturnDisposition(params: GrievanceAppealProfileServiceApi.GrievanceAppealProfile_SaveOverturnDispositionParams): Observable<GrievanceAppealOverturnDispositionSectionViewModel> {
+    return this.GrievanceAppealProfile_SaveOverturnDispositionResponse(params).pipe(
+      map(_r => _r.body)
+    );
+  }
+
+  /**
+   * @param params The `GrievanceAppealProfileService.GrievanceAppealProfile_SaveRepresentativeParams` containing the following parameters:
+   *
+   * - `model`:
+   *
+   * - `grievanceAppealKey`:
+   *
+   * @return OK
+   */
+  GrievanceAppealProfile_SaveRepresentativeResponse(params: GrievanceAppealProfileServiceApi.GrievanceAppealProfile_SaveRepresentativeParams): Observable<HttpResponse<AppealRepresentativeSectionViewModel>> {
+    let __params = this.newParams();
+    let __headers = new HttpHeaders();
+    let __body: any = null;
+    __body = params.model;
+
+    let req = new HttpRequest<any>(
+      'POST',
+      this.rootUrl + `/view/Core/GrievanceAppealModule/GrievanceAppeal/${params.grievanceAppealKey}/GrievanceAppealProfile/SaveRepresentative`,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: 'json'
+      });
+
+    return this.http.request<any>(req).pipe(
+      filter(_r => _r instanceof HttpResponse),
+      map(_r => {
+        let _resp = _r as HttpResponse<any>;
+        let _body: AppealRepresentativeSectionViewModel = null;
+        _body = _resp.body as AppealRepresentativeSectionViewModel;
+        return _resp.clone({body: _body}) as HttpResponse<AppealRepresentativeSectionViewModel>;
+      })
+    );
+  }
+
+  /**
+   * @param params The `GrievanceAppealProfileService.GrievanceAppealProfile_SaveRepresentativeParams` containing the following parameters:
+   *
+   * - `model`:
+   *
+   * - `grievanceAppealKey`:
+   *
+   * @return OK
+   */
+  GrievanceAppealProfile_SaveRepresentative(params: GrievanceAppealProfileServiceApi.GrievanceAppealProfile_SaveRepresentativeParams): Observable<AppealRepresentativeSectionViewModel> {
+    return this.GrievanceAppealProfile_SaveRepresentativeResponse(params).pipe(
+      map(_r => _r.body)
+    );
+  }
+
+  /**
+   * @param params The `GrievanceAppealProfileService.GrievanceAppealProfile_SaveWitnessParams` containing the following parameters:
+   *
+   * - `model`:
+   *
+   * - `grievanceAppealKey`:
+   *
+   * @return OK
+   */
+  GrievanceAppealProfile_SaveWitnessResponse(params: GrievanceAppealProfileServiceApi.GrievanceAppealProfile_SaveWitnessParams): Observable<HttpResponse<GrievanceAppealWitnessSectionViewModel>> {
+    let __params = this.newParams();
+    let __headers = new HttpHeaders();
+    let __body: any = null;
+    __body = params.model;
+
+    let req = new HttpRequest<any>(
+      'POST',
+      this.rootUrl + `/view/Core/GrievanceAppealModule/GrievanceAppeal/${params.grievanceAppealKey}/GrievanceAppealProfile/SaveWitness`,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: 'json'
+      });
+
+    return this.http.request<any>(req).pipe(
+      filter(_r => _r instanceof HttpResponse),
+      map(_r => {
+        let _resp = _r as HttpResponse<any>;
+        let _body: GrievanceAppealWitnessSectionViewModel = null;
+        _body = _resp.body as GrievanceAppealWitnessSectionViewModel;
+        return _resp.clone({body: _body}) as HttpResponse<GrievanceAppealWitnessSectionViewModel>;
+      })
+    );
+  }
+
+  /**
+   * @param params The `GrievanceAppealProfileService.GrievanceAppealProfile_SaveWitnessParams` containing the following parameters:
+   *
+   * - `model`:
+   *
+   * - `grievanceAppealKey`:
+   *
+   * @return OK
+   */
+  GrievanceAppealProfile_SaveWitness(params: GrievanceAppealProfileServiceApi.GrievanceAppealProfile_SaveWitnessParams): Observable<GrievanceAppealWitnessSectionViewModel> {
+    return this.GrievanceAppealProfile_SaveWitnessResponse(params).pipe(
+      map(_r => _r.body)
+    );
+  }
+}
+
+module GrievanceAppealProfileServiceApi {
+
+  /**
+   * Parameters for PromoteGrievanceAppeal
+   */
+  export interface PromoteGrievanceAppealParams {
+    model: PromoteGrievanceAppealModel;
+    grievanceAppealKey: string;
+  }
+
+  /**
+   * Parameters for GrievanceAppealProfile_RemoveAppellant
+   */
+  export interface GrievanceAppealProfile_RemoveAppellantParams {
+    grievanceAppealKey: string;
+    appellantKey: string;
+  }
+
+  /**
+   * Parameters for GrievanceAppealProfile_RemoveRepresentative
+   */
+  export interface GrievanceAppealProfile_RemoveRepresentativeParams {
+    model: AppealRepresentativeModel;
+    grievanceAppealKey: string;
+  }
+
+  /**
+   * Parameters for GrievanceAppealProfile_RemoveWitness
+   */
+  export interface GrievanceAppealProfile_RemoveWitnessParams {
+    witnessKey: string;
+    grievanceAppealKey: string;
+  }
+
+  /**
+   * Parameters for GrievanceAppealProfile_SaveAppellant
+   */
+  export interface GrievanceAppealProfile_SaveAppellantParams {
+    model: AppellantModel;
+    grievanceAppealKey: string;
+  }
+
+  /**
+   * Parameters for GrievanceAppealProfile_SaveDisposition
+   */
+  export interface GrievanceAppealProfile_SaveDispositionParams {
+    model: AppealDispositionModel;
+    grievanceAppealKey: string;
+  }
+
+  /**
+   * Parameters for GrievanceAppealProfile_SaveExtension
+   */
+  export interface GrievanceAppealProfile_SaveExtensionParams {
+    model: GrievanceAppealAdministrativeActionsSectionModel;
+    grievanceAppealKey: string;
+  }
+
+  /**
+   * Parameters for GrievanceAppealProfile_SaveGrievanceAppealInformation
+   */
+  export interface GrievanceAppealProfile_SaveGrievanceAppealInformationParams {
+    model: GrievanceAppealInformationSectionModel;
+    grievanceAppealKey: string;
+  }
+
+  /**
+   * Parameters for GrievanceAppealProfile_SaveHearingInformation
+   */
+  export interface GrievanceAppealProfile_SaveHearingInformationParams {
+    model: HearingInformationModel;
+    grievanceAppealKey: string;
+  }
+
+  /**
+   * Parameters for GrievanceAppealProfile_SaveOverturnDisposition
+   */
+  export interface GrievanceAppealProfile_SaveOverturnDispositionParams {
+    model: GrievanceAppealOverturnDispositionSectionModel;
+    grievanceAppealKey: string;
+  }
+
+  /**
+   * Parameters for GrievanceAppealProfile_SaveRepresentative
+   */
+  export interface GrievanceAppealProfile_SaveRepresentativeParams {
+    model: AppealRepresentativeModel;
+    grievanceAppealKey: string;
+  }
+
+  /**
+   * Parameters for GrievanceAppealProfile_SaveWitness
+   */
+  export interface GrievanceAppealProfile_SaveWitnessParams {
+    model: GrievanceAppealWitnessModel;
+    grievanceAppealKey: string;
+  }
+}
+
+export { GrievanceAppealProfileServiceApi }
+
+
+
+TO:
+
+Params:{
+	Name:'GrievanceAppealProfile_RemoveRepresentativeParams',
+	Properties:[
+		{
+			Name: 'grievanceAppealKey',
+			Type: 'string',
+		},
+		{
+			Name: 'appellantKey',
+			Type: 'string',
+		},
+		...
+	]
+}
+
+EndpointDesc:{
+	Name:'GrievanceAppealProfile_SaveWitness',
+	params:{
+		(instance of Params)
+	}
+}
+
+ServiceDesc:{
+	Index:{
+		instance of EndpointDesc
+	},
+	Sections:[
+		{instance of EndpointDesc},
+		...
+	],
+	ParamsList:[
+		{(instance of Params)},
+		...
+	]
+}
+
+if analyz file is not so easy, we can try to access swagger api
