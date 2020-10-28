@@ -1,0 +1,64 @@
+FROM:
+
+export interface GrievanceAppealIndexModel {
+  OverturnDispositionSection?: GrievanceAppealOverturnDispositionSectionModel;
+  AdministrativeActionsSection?: GrievanceAppealAdministrativeActionsSectionModel;
+  Disposition?: AppealDispositionModel;
+  HearingInformation?: HearingInformationModel;
+  InformationSection?: GrievanceAppealInformationSectionModel;
+  Appellant?: AppellantSectionModel;
+  OverviewSection?: GrievanceAppealOverviewSectionModel;
+  Representative?: AppealRepresentativeSectionModel;
+  Witness?: Array<GrievanceAppealWitnessModel>;
+  Key?: string;
+  MetadataKey?: string;
+}
+
+
+export interface AppellantSectionModel {
+  Appellants?: Array<AppellantModel>;
+  MetadataKey?: string;
+}
+
+export interface GrievanceAppealWitnessModel {
+  Contact?: GrievanceAppealWitnessTypeContactModel;
+  GrievanceAppealKey?: string;
+  Other?: GrievanceAppealWitnessTypeOtherModel;
+  StaffMember?: GrievanceAppealWitnessTypeStaffMemberModel;
+  WitnessForType?: ConceptDomainModel;
+  WitnessType?: ConceptDomainModel;
+  Key?: string;
+  MetadataKey?: string;
+}
+
+
+TO:
+
+ModelDesc{
+	TypeName： 'GrievanceAppealIndexModel',
+	Properties:[
+		{
+			Name:'OverturnDispositionSection',
+			TypeName:'GrievanceAppealOverturnDispositionSectionModel',
+			Plural: false,	
+		},
+		{
+			Name:'Appellant',
+			TypeName:'AppellantSectionModel',
+			Plural: true,
+			DeepPlural: true,
+			DeepPluralPropertyName:'Appellants',
+			DeepPluralTypeName:'AppellantModel',
+		},
+		{
+			Name:'Witness',
+			TypeName:'GrievanceAppealWitnessModel',
+			Plural: true,
+			DeepPlural: false,
+		},
+		...
+	]
+}
+
+
+if analyz file is not easy, we can try to access swagger api
