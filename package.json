@@ -14,12 +14,172 @@
 	],
 	"main": "./out/extension.js",
 	"contributes": {
+		"configuration": {
+			"type": "object",
+			"title": "Carity Files Tool menus option configuration",
+			"properties": {
+				"carity-files.menu.environment": {
+					"type": "boolean",
+					"default": true,
+					"description": "Shows or hides the menu item."
+				},
+				"carity-files.menu.router": {
+					"type": "boolean",
+					"default": true,
+					"description": "Shows or hides the menu item."
+				},
+				"carity-files.menu.add": {
+					"type": "boolean",
+					"default": true,
+					"description": "Shows or hides the menu item."
+				},
+				"carity-files.menu.list": {
+					"type": "boolean",
+					"default": true,
+					"description": "Shows or hides the menu item."
+				},
+				"carity-files.menu.panel": {
+					"type": "boolean",
+					"default": true,
+					"description": "Shows or hides the menu item."
+				},
+				"carity-files.menu.panelForm": {
+					"type": "boolean",
+					"default": true,
+					"description": "Shows or hides the menu item."
+				},
+				"carity-files.menu.profile": {
+					"type": "boolean",
+					"default": true,
+					"description": "Shows or hides the menu item."
+				},
+				"carity-files.menu.query": {
+					"type": "boolean",
+					"default": true,
+					"description": "Shows or hides the menu item."
+				},
+				"carity-files.menu.queryRoot": {
+					"type": "boolean",
+					"default": true,
+					"description": "Shows or hides the menu item."
+				},
+				"carity-files.menu.service": {
+					"type": "boolean",
+					"default": true,
+					"description": "Shows or hides the menu item."
+				},
+				"carity-files.menu.rootModule": {
+					"type": "boolean",
+					"default": true,
+					"description": "Shows or hides the menu item."
+				}
+			}
+		},
 		"commands": [
 			{
-				"command": "carity-files-tool.helloWorld",
-				"title": "Hello World"
+				"command": "extension.carityEnvironment",
+				"title": "Carity Files Environment"
+			},
+			{
+				"command": "extension.carityRouter",
+				"title": "Carity Files Router"
+			},
+			{
+				"command": "extension.carityAdd",
+				"title": "Carity Files Add"
+			},
+			{
+				"command": "extension.carityList",
+				"title": "Carity Files List"
+			},
+			{
+				"command": "extension.carityPanel",
+				"title": "Carity Files Panel"
+			},
+			{
+				"command": "extension.carityPanelForm",
+				"title": "Carity Files Panel Form"
+			},
+			{
+				"command": "extension.carityProfile",
+				"title": "Carity Files Profile"
+			},
+			{
+				"command": "extension.carityQuery",
+				"title": "Carity Files Query"
+			},
+			{
+				"command": "extension.carityQueryRoot",
+				"title": "Carity Files Query Root"
+			},
+			{
+				"command": "extension.carityService",
+				"title": "Carity Files Service"
+			},
+			{
+				"command": "extension.carityRootModule",
+				"title": "Carity Files Root Module"
 			}
-		]
+		],
+		"menus": {
+			"explorer/context": [
+				{
+					"when": "config.carity-files.menu.environment",
+					"command": "extension.carityEnvironment",
+					"group": "Carity Files"
+				},
+				{
+					"when": "config.carity-files.menu.router",
+					"command": "extension.carityRouter",
+					"group": "Carity Files"
+				},
+				{
+					"when": "config.carity-files.menu.add",
+					"command": "extension.carityAdd",
+					"group": "Carity Files"
+				},
+				{
+					"when": "config.carity-files.menu.list",
+					"command": "extension.carityList",
+					"group": "Carity Files"
+				},
+				{
+					"when": "config.carity-files.menu.panel",
+					"command": "extension.carityPanel",
+					"group": "Carity Files"
+				},
+				{
+					"when": "config.carity-files.menu.panelForm",
+					"command": "extension.carityPanelForm",
+					"group": "Carity Files"
+				},
+				{
+					"when": "config.carity-files.menu.profile",
+					"command": "extension.carityProfile",
+					"group": "Carity Files"
+				},
+				{
+					"when": "config.carity-files.menu.query",
+					"command": "extension.carityQuery",
+					"group": "Carity Files"
+				},
+				{
+					"when": "config.carity-files.menu.queryRoot",
+					"command": "extension.carityQueryRoot",
+					"group": "Carity Files"
+				},
+				{
+					"when": "config.carity-files.menu.service",
+					"command": "extension.carityService",
+					"group": "Carity Files Group"
+				},
+				{
+					"when": "config.carity-files.menu.rootModule",
+					"command": "extension.carityRootModule",
+					"group": "Carity Files Group"
+				}
+			]
+		}
 	},
 	"scripts": {
 		"vscode:prepublish": "npm run compile",
@@ -30,16 +190,17 @@
 		"test": "node ./out/test/runTest.js"
 	},
 	"devDependencies": {
-		"@types/vscode": "^1.50.0",
 		"@types/glob": "^7.1.3",
 		"@types/mocha": "^8.0.0",
 		"@types/node": "^12.11.7",
-		"eslint": "^7.9.0",
+		"@types/vscode": "^1.50.0",
 		"@typescript-eslint/eslint-plugin": "^4.1.1",
 		"@typescript-eslint/parser": "^4.1.1",
+		"eslint": "^7.9.0",
 		"glob": "^7.1.6",
 		"mocha": "^8.1.3",
 		"typescript": "^4.0.2",
+		"vscode": "^1.1.37",
 		"vscode-test": "^1.4.0"
 	}
 }
