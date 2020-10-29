@@ -1,4 +1,3 @@
-import { stringify } from 'querystring';
 import { ExtensionContext, commands } from 'vscode';
 
 import { commandsMap } from './commands';
