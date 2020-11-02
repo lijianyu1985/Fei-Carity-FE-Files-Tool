@@ -10,7 +10,7 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:carity-files-tool.helloWorld"
+		"*"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
@@ -134,27 +134,27 @@
 					"group": "Carity Files"
 				},
 				{
-					"when": "config.carity-files.menu.add",
+					"when": "resourceFilename==views",
 					"command": "extension.carityAdd",
 					"group": "Carity Files"
 				},
 				{
-					"when": "config.carity-files.menu.list",
+					"when": "resourceFilename==views",
 					"command": "extension.carityList",
 					"group": "Carity Files"
 				},
 				{
-					"when": "config.carity-files.menu.panel",
+					"when": "resourceFilename==profile || resourceFilename==panels",
 					"command": "extension.carityPanel",
 					"group": "Carity Files"
 				},
 				{
-					"when": "config.carity-files.menu.panelForm",
+					"when": "resourceFilename=~/panel/",
 					"command": "extension.carityPanelForm",
 					"group": "Carity Files"
 				},
 				{
-					"when": "config.carity-files.menu.profile",
+					"when": "resourceFilename==views",
 					"command": "extension.carityProfile",
 					"group": "Carity Files"
 				},
